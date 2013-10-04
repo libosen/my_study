@@ -16,3 +16,35 @@
 ### Windows 平台
 * [msysGit](http://code.google.com/p/msysgit)
 
+## 配置 Git
+
+### 用户信息
+* git config --global user.name 'Zhang Jinglin'
+* git config --global user.email 'zhangjinglin@gmail.com'
+
+### 查看配置信息
+* git config --list
+
+### 获取帮助
+* git help
+* git help config
+
+## Git 基础
+
+### 在工作目录初始化仓库
+* git init
+    * git add *.c
+    * git add README
+    * git commit -m 'Initial project version'
+
+### 从仓库克隆
+> git clone git://github.com/zhangjinglin/my_study.git
+>> git clone git://github.com/zhangjinglin/my_study.git MyStudy
+
+### 检查当前文件状态
+> git status
+
+### 跟踪新文件
+> git add README
+
+
