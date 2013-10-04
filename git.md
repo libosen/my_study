@@ -47,4 +47,60 @@
 ### 跟踪新文件
 > git add README
 
+### 忽略某些文件
+> .gitignore
+>> # 此为注释
+>> *.a      # 忽略所有.a 结尾的文件
+>> !lib.a   # 但 lib.a 除外
+>> /TODO    # 仅仅忽略项目根目录下的TODO文件，不包括subdir/TODO
+>> build/   # 忽略build/目录下的所有文件
+>> doc/*.txt   # 忽略doc/notes.txt 但不包括doc/server/arch.txt
+
+### 查看更新了什么
+> git diff
+
+### 提交更新
+> git commit
+>> git commit -m '更新说明'
+
+### 跳过暂存直接更新
+> git commit -a -m '提交说明'
+
+### 移除文件
+> git rm README
+
+### 移动文件
+> git mv file_from file_to
+
+### 查看提交历史
+> git log
+>> -p 展开显示每次提交的差异内容
+>> -2 仅显示最近2次更新
+>> --stat 仅显示更改行数
+
+### 撤销最后一次提交
+> git commit --amend
+
+### 取消已经暂存的文件
+> git reset HEAD
+
+### 取消对某一个文件的修改
+> git checkout -- xxxxx
+
+### 查看当前的远程仓库
+> git remote
+>> git remote -v
+
+### 添加远程仓库
+> git remote add origin https://github.com/zhangjinglin/my_study.git
+
+### 从远程仓库抓取数据
+> git fetch [remote-name]
+
+### 推送数据到远程仓库
+> git push origin master
+
+### 查看远程仓库信息
+> git remote show origin
+
 
