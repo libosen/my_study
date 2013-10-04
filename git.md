@@ -7,10 +7,12 @@
 ### Linxu 平台
 * yum install git-core
 * apt-get install git-core
+
 ### Mac 平台
 * [图形化安装器](http://code.google.com/p/git-osx-installer)
 * sudo port install git-core +svn +doc +bash_completion +gitweb
 * brew install git
+
 ### Windows 平台
 * [msysGit](http://code.google.com/p/msysgit)
 
