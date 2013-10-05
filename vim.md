@@ -59,3 +59,35 @@ Vim < Bram Moolenaar
 	* 4k 9h 8l
 	* 3gg/3G: go to the 3rd line
 	* :14: go to the 14th line
+
+### 1.4 Basic Editing
+* :e(dit) ~/.vimrc
+* syntax on: syntax highlight
+* set number
+* source ~/.vimrc: reload vimconfig
+* x: delete the letter on cursor
+* u: undo
+* dw: delete word
+* db: delete before word
+* 2dw: delete 2 word
+* cw: delete word and into insert mode
+* dd: delete whole line
+* cc: delete whole line and insert mode
+* 2dd: delete 2 lines
+* 2cc: delete 2 liens and edit
+* ct": delete the "" content 
+* ci": delete the "" content and edit i(nside)
+* ci): if in the (), delete and edit i(nside)
+* ca): if in the (), delete,include() and edit a(round)
+
+### 1.5 Cut, Copy and Paste
+* cut: every delete command is cut command
+* p: paste in the cursor after 
+* P: paste in the cursor before
+* dj: delete current and next line
+* y: copy
+* yw: copy word
+* yy: copy line
+* y0: copy cursor to the begin of the line
+* 10p: paste 10 times
+* X: delete the letter before cursor 
