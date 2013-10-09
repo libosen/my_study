@@ -91,3 +91,19 @@ Vim < Bram Moolenaar
 * y0: copy cursor to the begin of the line
 * 10p: paste 10 times
 * X: delete the letter before cursor 
+
+## 2 Digging Deeper
+### 2.1 Search
+* / search
+* n search next
+* N search back
+* ? back search
+* set incsearch ---- open increment search
+* set ignorcase ---- ingnore case
+* set hlsearch ---- highlight search
+* noh --- cancle the highlight
+* d /xxx ---- delete between cursor to xxx
+* c /xxx ---- delete between cursor to xxx and insert
+* y /xxx ---- copy ...
+
+
