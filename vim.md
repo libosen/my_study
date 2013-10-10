@@ -106,4 +106,12 @@ Vim < Bram Moolenaar
 * c /xxx ---- delete between cursor to xxx and insert
 * y /xxx ---- copy ...
 
-
+### 2.2 Replace
+* :s/Ember/Amber ---- replace Ember with Amber in current line
+* :%s/Ember/Amber ---- replace Ember with Amber in whole file 但是仅仅替换每行第一个出现的单词
+* :%s/Ember/Amber/g ---- replace Ember with Amber in whole file every word
+* v ---- into virtual mode
+* shift+v ---- into virtual line mode
+* % ---- in virtual mode , you can put cursor under (|[|{, then the % can select the match content
+* gv ---- select last selection
+* :s/Ember/Amber/gc ---- ask you substitue 
