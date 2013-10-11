@@ -115,3 +115,20 @@ Vim < Bram Moolenaar
 * % ---- in virtual mode , you can put cursor under (|[|{, then the % can select the match content
 * gv ---- select last selection
 * :s/Ember/Amber/gc ---- ask you substitue 
+
+### 2.3 Macros and Registers
+* ^G ---- Display file info
+* q ---- start macro record
+* a ---- record macro to a register
+* :reg ---- open register
+
+### 2.4 Advanced Movement
+* ^d ---- down hakf screen
+* ^u ---- up half scrren
+* ^f ---- forword screen
+* ^b ---- back screen
+* M ---- middle the screen 
+* H ---- top of the window
+* L ---- bottom of th window (last line)
+* 3L ---- 3 line to botom
+* 3H ---- 3 line to top
