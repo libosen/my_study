@@ -42,8 +42,74 @@ NAME="System eth0:0"
 #service network restart
 ```
 
-#### 检查SSHD 服务是否启动
+#### 更新系统
 ```
-#checkcfg
+yum update
 ```
 
+#### 检查SSHD 服务是否启动
+```
+#chkconfig
+```
+
+
+
+#### 安装FTP，设置
+查看是否已经安装vsftpd
+```
+rpm -qa | grep vsftpd
+```
+如果没有，就安装，并设置开机启动
+```
+yum install vsftpd
+chkconfig vsftpd on
+```
+
+修改配置文件
+
+打开/etc/vsftpd/vsftpd.conf，做如下配置
+```
+anonymous_enable=NO //设定不允许匿名访问
+local_enable=YES //设定本地用户可以访问。
+chroot_local_user=YES  //本地所有帐户都只能在自家目录
+```
+
+##### 设置防火墙
+
+打开/etc/sysconfig/iptables, 添加
+```
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+```
+然后保存，并关闭该文件，在终端内运行下面的命令，刷新防火墙配置：
+```
+service iptables restart
+```
+
+##### 设置 SELINUX 规则
+```
+#getsebool -a | grep ftp //查看是否 ftp_home_dir -> off
+#setsebool ftp_home_dir 1 //打开 ftp_home_dir 规则,每次开机规则复位
+OR
+#setsebool -P ftp_home_dir 1 //保存规则
+```
+
+OK，运行“service vsftpd start”，你就可以访问你的FTP服务器了。
+
+配置PASV模式
+
+vsftpd默认没有开启PASV模式，现在FTP只能通过PORT模式连接，要开启PASV默认需要通过下面的配置
+
+打开/etc/vsftpd/vsftpd.conf，在末尾添加
+
+pasv_enable=YES   //开启PASV模式
+pasv_min_port=40000   //最小端口号
+pasv_max_port=40080   //最大端口号
+pasv_promiscuous=YES
+在防火墙配置内开启40000到40080端口
+
+-A INPUT m state --state NEW m tcp p dport 40000:40080 j ACCEPT
+重启iptabls和vsftpd
+
+service iptables restart
+service vsftpd restart
+现在可以使用PASV模式连接你的FTP服务器了~
