@@ -95,21 +95,20 @@ OR
 
 OK，运行“service vsftpd start”，你就可以访问你的FTP服务器了。
 
-配置PASV模式
-
+##### 配置PASV模式
 vsftpd默认没有开启PASV模式，现在FTP只能通过PORT模式连接，要开启PASV默认需要通过下面的配置
-
-打开/etc/vsftpd/vsftpd.conf，在末尾添加
-
+```
 pasv_enable=YES   //开启PASV模式
 pasv_min_port=40000   //最小端口号
 pasv_max_port=40080   //最大端口号
 pasv_promiscuous=YES
-在防火墙配置内开启40000到40080端口
-
+```
+在防火墙配置内开启40000到40080端口 /etc/sysconfig/iptables
+```
 -A INPUT m state --state NEW m tcp p dport 40000:40080 j ACCEPT
+```
 重启iptabls和vsftpd
-
+```
 service iptables restart
 service vsftpd restart
-现在可以使用PASV模式连接你的FTP服务器了~
+```
