@@ -60,3 +60,32 @@ var MyModule = (function() {
 grunt uglify
 ```
 
+### 多个 target
+```javascript
+odule.exports = function (grunt) {
+  grunt.initConfig({
+    uglify: {
+      options: {
+        mangle: true,  // 变量名压缩
+        compress: true, // 代码压缩
+        sourceMap: 'dist/application.map', // 生成 map
+        banner: '/* zhangjinglin 2014 */\n' // 文件描述头
+      },
+      target: {
+        src: 'src/application.js',
+        dest: 'dist/application.min.js'
+      },
+      util: {
+        src: 'src/util.js',
+        dest: 'dist/util.min.js'
+      }
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+}
+```
+```bash
+grunt uglify // 两个任务生成
+grunt uglify:util // 指定任务生成
+```
